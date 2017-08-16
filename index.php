@@ -53,13 +53,13 @@
 
 <?php
     $rep_list = $bdd->query('SELECT * FROM carte LIMIT 5');
-  while ($donnees_list = $rep_list->fetch())
+  while ($cin_list = $rep_list->fetch())
     {
       ?>
   <table class="t-section3">
-    <tr><td width="100">Clients: </td><td width="0"><?php echo $donnees_list['client']; ?></td></tr>
-    <tr><td>Machine: </td><td><?php echo $donnees_list['nom']; ?></td></tr>
-    <tr><td>Remarque: </td><td><?php echo $donnees_list['remarque']; ?></td></tr>
+    <tr><td width="100">Clients: </td><td width="0"><?php echo $cin_list['client']; ?></td></tr>
+    <tr><td>Machine: </td><td><?php echo $cin_list['nom']; ?></td></tr>
+    <tr><td>Remarque: </td><td><?php echo $cin_list['remarque']; ?></td></tr>
   </table>
   <?php
     }
