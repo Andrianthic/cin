@@ -51,28 +51,26 @@
 	</div>
 	<p>Nouvelle identité</p>
 	<div class="new-id">
-		<table>
-			<tr><td>Nom</td><td>: <big></big></td></tr>
-			<tr><td>Prénom</td><td>: </td></tr>
-			<tr><td>Date et lieu de naissance</td><td>: à </td></tr>
-			<tr><td>Num CIN</td><td>: </td></tr>
+	<?php
+	    $rep_list = $bdd->query('SELECT * FROM carte LIMIT 5');
+	  while ($cin_list = $rep_list->fetch())
+	    {
+	      ?>
+	      <table>
+			<tr><td>Nom</td><td>: <?php echo $cin_list['nom']; ?><b></b></td></tr>
+			<tr><td>Prénom</td><td>: <?php echo $cin_list['prenom']; ?></td></tr>
+			<tr><td>Date et lieu de naissance</td><td>: <?php echo $cin_list['date_naissance']; ?> à <?php echo $cin_list['lieu_naissance']; ?></td></tr>
+			<tr><td>Num CIN</td><td>: <?php echo $cin_list['num_cin']; ?></td></tr>
+			<tr><td>Ajouté le</td><td>: <?php echo $cin_list['date_ajout']; ?></td></tr>
 		</table>
+	  <?php
+	    }
+	      $rep_list->closeCursor();
+	  ?>
+		
 	</div>
 </div>
 
-<?php
-    $rep_list = $bdd->query('SELECT * FROM carte LIMIT 5');
-  while ($cin_list = $rep_list->fetch())
-    {
-      ?>
-  <table class="t-section3">
-    <tr><td width="100">Clients: </td><td width="0"><?php echo $cin_list['client']; ?></td></tr>
-    <tr><td>Machine: </td><td><?php echo $cin_list['nom']; ?></td></tr>
-    <tr><td>Remarque: </td><td><?php echo $cin_list['remarque']; ?></td></tr>
-  </table>
-  <?php
-    }
-      $reponse->closeCursor();
-  ?>
+
 </body>
 </html>
