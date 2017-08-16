@@ -21,7 +21,7 @@
             header('Location: index.php');
         }
 
-    
+
  ?>
 
 <!DOCTYPE html>
@@ -48,6 +48,15 @@
 				<tr class="tr-last"><td class="td1"></td><td><button>Enregistrer</button><button>Annuler</button></td></tr>
 			</table>
 		</form>
+	</div>
+	<p>Nouvelle identité</p>
+	<div class="new-id">
+		<table>
+			<tr><td>Nom</td><td>: <big></big></td></tr>
+			<tr><td>Prénom</td><td>: </td></tr>
+			<tr><td>Date et lieu de naissance</td><td>: à </td></tr>
+			<tr><td>Num CIN</td><td>: </td></tr>
+		</table>
 	</div>
 </div>
 
