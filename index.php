@@ -39,12 +39,12 @@
 	</div>
 	<div class="form">
 		<form method="POST" action="">
-			<table class="table1">
-				<tr><td class="td1">Nom</td><td><input type="text" name="name"></td></tr>
-				<tr><td class="td1">Prénom</td><td><input type="text" name="name"></td></tr>
-				<tr><td class="td1">Date de naissance</td><td><input type="text" name="name"></td></tr>
-				<tr><td class="td1">Lieu de naissance</td><td><input type="text" name="name"></td></tr>
-				<tr><td class="td1">Num CIN</td><td><input type="text" name="name"></td></tr>
+			<table>
+				<tr><td class="td1">Nom</td><td><input type="text" name="nom"></td></tr>
+				<tr><td class="td1">Prénom</td><td><input type="text" name="prenom"></td></tr>
+				<tr><td class="td1">Date de naissance</td><td><input type="date" name="date_naissance"></td></tr>
+				<tr><td class="td1">Lieu de naissance</td><td><input type="text" name="lieu_naissance"></td></tr>
+				<tr><td class="td1">Num CIN</td><td><input type="text" name="num_cin"></td></tr>
 				<tr class="tr-last"><td class="td1"></td><td><button>Enregistrer</button><button>Annuler</button></td></tr>
 			</table>
 		</form>
@@ -59,5 +59,20 @@
 		</table>
 	</div>
 </div>
+
+<?php
+    $rep_list = $bdd->query('SELECT * FROM carte LIMIT 5');
+  while ($cin_list = $rep_list->fetch())
+    {
+      ?>
+  <table class="t-section3">
+    <tr><td width="100">Clients: </td><td width="0"><?php echo $cin_list['client']; ?></td></tr>
+    <tr><td>Machine: </td><td><?php echo $cin_list['nom']; ?></td></tr>
+    <tr><td>Remarque: </td><td><?php echo $cin_list['remarque']; ?></td></tr>
+  </table>
+  <?php
+    }
+      $reponse->closeCursor();
+  ?>
 </body>
 </html>
